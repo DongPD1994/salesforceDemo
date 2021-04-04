@@ -83,7 +83,10 @@
 
   <!-- Setting Page Start-->
   <template if:false={modeList}>
-    <c-setting-page lst-field={getDataForTableSetting} all-field={allFiled} update-data-table={updateTable} update-field={updateFieldTable}></c-setting-page>
+    <c-setting-page lst-field={getDataForTableSetting} all-field={allFiled} update-data-table={updateTable} update-field={updateFieldTable} close-setting={closeSetting}></c-setting-page>
   </template>
   <!-- Setting Page End-->
+<div>
+  <c-add-edit-personal-info input-data={infoData} all-field={allFiled}></c-add-edit-personal-info>
+</div>
 </template>
