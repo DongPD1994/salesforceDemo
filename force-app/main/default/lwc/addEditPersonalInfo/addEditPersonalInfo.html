@@ -1,0 +1,122 @@
+<template>
+    <div class="slds">
+        <!-- 
+        <div class="slds-col slds-size_6-of-12 slds-m-bottom--small">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label">First Name</label>
+                <div class="slds-form-element__controller">
+                    <lightning-input type="text" name="FirstName" class="slds-input" placeholder="Enter first name" value={getFirstNameValue}>
+                    </lightning-input>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_6-of-12  slds-m-bottom--small">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">Last Name</label>
+                    <div class="slds-form-element__controller">
+                        <lightning-input type="text" name="LastName" class="slds-input" placeholder="Enter last name" value={getLastNameValue}>
+                        </lightning-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_6-of-12  slds-m-bottom--small">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">Phone</label>
+                    <div class="slds-form-element__controller">
+                        <lightning-input type="text" name="PhoneNumber" class="slds-input" value={getPhoneValue}
+                            placeholder="Enter phone number"> </lightning-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_6-of-12  slds-m-bottom--small">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">Email</label>
+                    <div class="slds-form-element__controller">
+                        <lightning-input type="email" name="Email" class="slds-input" placeholder="Enter email" value={getEmailValue}>
+                        </lightning-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_6-of-12  slds-m-bottom--small">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">Address</label>
+                    <div class="slds-form-element__controller">
+                        <lightning-input type="text" name="Address" class="slds-input" placeholder="Enter address" value={getAddressValue}>
+                        </lightning-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_6-of-12  slds-m-bottom--small">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">Birthday</label>
+                    <div class="slds-form-element__controller">
+                        <lightning-input type="date" name="Birthday" class="slds-input" placeholder="Enter birthday" value={getBirthdayValue}>
+                        </lightning-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_6-of-12  slds-m-bottom--small">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">Social</label>
+                    <div class="slds-form-element__controller">
+                        <lightning-input type="url" name="Links" class="slds-input" placeholder="Enter links" value={getLinkValue}>
+                        </lightning-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_6-of-12  slds-m-bottom--small">
+                <div class="slds-form-element">
+                    <label class="slds-form-element__label">Bio</label>
+                    <div class="slds-form-element__controller">
+                        <lightning-input type="text" name="Bio" class="slds-input" placeholder="Enter bio" value={getBioValue}>
+                        </lightning-input>
+                    </div>
+                </div>
+            </div>
+        </div>
+-->
+        <template for:each={allField} for:item="item">
+            <div class="slds-grid slds-wrap" key={item.id}>
+                <div class="slds-col slds-size_6-of-12  slds-m-bottom--small">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label">{item.label}</label>
+                        <div class="slds-form-element__controller">
+                            <lightning-input type={item.type} name={item.fieldName} class="slds-input" placeholder="Enter Input"
+                                value={getValue}>
+                            </lightning-input>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <div class="slds-text-align--center slds-m-top--medium">
+            <button class="slds-button slds-button--brand" onclick={cancelEdit}>Cancel Edit</button>
+        </div>
+        <div class="slds-text-align--center slds-m-top--medium">
+            <button class="slds-button slds-button--brand" onclick={submitInfo}>Submit</button>
+        </div>
+
+    </div>
+
+</template>
