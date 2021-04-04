@@ -7,6 +7,7 @@ export default class SettingPage extends LightningElement {
   @api allField;
   @api updateDataTable;
   @api updateField;
+  @api closeSetting;
   @track dataTable;
   @track lstFieldTmp;
   @api
@@ -21,7 +22,7 @@ export default class SettingPage extends LightningElement {
   get getAllField() {
     return this.allField;
   }
-  
+
   get getHeaderData() {
     const tmpColumns = jsonParse(JSON.stringify(this.lstFieldTmp));
     tmpColumns.forEach(element => {
@@ -65,6 +66,10 @@ export default class SettingPage extends LightningElement {
       console.log(JSON.stringify("Apex update result: " + result));
       this.dispatchEvent(getToastMessage(TYPE_MESS.Success, `Records updared`));
     }
+  }
+
+  handleClickClose() {
+    this.closeSetting();
   }
 
   connectedCallback() {
