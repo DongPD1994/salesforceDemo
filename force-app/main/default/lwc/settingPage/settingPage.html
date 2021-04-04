@@ -8,7 +8,8 @@
   <div>
     <template for:each={getAllField} for:item="itemHeader">
       <span key={itemHeader.id} class="display-block">
-        <input type="checkbox" onchange={changeItem} value={itemHeader.id} name={itemHeader.id} checked={itemHeader.isCheck}></input> {itemHeader.label}
+        <input type="checkbox" onchange={changeItem} value={itemHeader.id} name={itemHeader.id}
+          checked={itemHeader.isCheck}></input> {itemHeader.label}
       </span>
     </template>
   </div>
@@ -16,5 +17,9 @@
     <span>Resize table</span>
     <lightning-datatable key-field="Id" columns={getHeaderData} onresize={headerAction} data={dataTable}>
     </lightning-datatable>
+  </div>
+  <div>
+    <lightning-button variant="success" label="Close" title="Successful action" onclick={handleClickClose}
+      class="slds-m-left_x-small"></lightning-button>
   </div>
 </template>
