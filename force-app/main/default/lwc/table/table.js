@@ -122,6 +122,7 @@ export default class DataTableComponent extends LightningElement {
   @track modeList = true;
   @track allFiled;
   @track getDataForTableSetting;
+  @track infoData ={first_name__c: "a"};
 
   /**
    * Get data for list
@@ -390,6 +391,10 @@ export default class DataTableComponent extends LightningElement {
 
   openSetting() {
     this.modeList = false;
+  }
+
+  closeSetting = () => {
+    this.modeList = true;
   }
 
   updateTable = (event, id) => {
