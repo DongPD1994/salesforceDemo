@@ -1,7 +1,7 @@
 public with sharing class SaveFieldInfo {
     @AuraEnabled(cacheable = false)
-    public static string updateFieldInfo(Object data) {
-        string mess;
+    public static boolean updateFieldInfo(Object data) {
+        boolean isSuccess;
         List<FieldInfo__c> dataForUpdate = (List<FieldInfo__c>) JSON.deserialize(
             JSON.serialize(data),
             List<FieldInfo__c>.class
@@ -10,12 +10,12 @@ public with sharing class SaveFieldInfo {
         try {
             if (FieldInfo__c.SObjectType.getDescribe().isAccessible()){
                 update dataForUpdate;
-                mess = 'Success: field info updated successfully';
+                isSuccess = true;
             }
         }
         catch (Exception e) {
-           mess = 'The following exception has occurred: ' + e.getMessage();
+           isSuccess = false;
         }
-        return mess;
+        return isSuccess;
     }
 }

@@ -1,16 +1,17 @@
 public with sharing class AddEditPersonalInfo {
     @AuraEnabled(cacheable = false)
-    public static string insertInfo(personal_info__c insertInfo){
-        string mess;
+    public static boolean insertInfo(personal_info__c insertInfo){
+        boolean isSuccess;
         try {
             if (personal_info__c.SObjectType.getDescribe().isAccessible()){
                 insert insertInfo;
-                mess = 'Success: add successfully';
+                isSuccess = true;
             }
         }
         catch (Exception e) {
-           mess = 'The following exception has occurred: ' + e.getMessage();
+            System.debug(e);
+            isSuccess = false;
         }
-        return mess;
+        return isSuccess;
     }
 }
