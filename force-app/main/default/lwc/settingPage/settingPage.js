@@ -6,7 +6,6 @@ export default class SettingPage extends LightningElement {
   tmpFieldInfo;
   @api allField;
   @api updateDataTable;
-  @api updateField;
   @api closeSetting;
   @track dataTable;
   @track lstFieldTmp;
@@ -38,8 +37,8 @@ export default class SettingPage extends LightningElement {
     const id = event.target.value;
     const dataUpdate = [{ Id: event.target.value, is_show__c: isCheck }];
     const result = await updateFieldInfo({ data: dataUpdate });
-    this.dispatchEvent(getToastMessage(TYPE_MESS.Success, `Records updared`));
-    if (result === "Success: field info updated successfully") {
+    this.dispatchEvent(getToastMessage(result ? TYPE_MESS.Success : TYPE_MESS.Error, result ? "Update Field Success" : `Update Field Faild`));
+    if (result) {
       this.updateDataTable(true, id);
     }
   }
@@ -63,8 +62,7 @@ export default class SettingPage extends LightningElement {
       this.dataTable = [...data];
       this.lstFieldTmp = [...tmp];
       const result = await updateFieldInfo({ data: dataForSaveFieldInfo });
-      console.log(JSON.stringify("Apex update result: " + result));
-      this.dispatchEvent(getToastMessage(TYPE_MESS.Success, `Records updared`));
+      this.dispatchEvent(getToastMessage(result ? TYPE_MESS.Success : TYPE_MESS.Error, result ? "Update Field Success" : `Update Field Faild`));
     }
   }
 
