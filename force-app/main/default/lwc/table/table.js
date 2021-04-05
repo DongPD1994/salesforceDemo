@@ -73,7 +73,7 @@ const initHeader = (isEdit, data, addViewAndDel = true) => {
         alternativeText: 'Delete',
         name: 'delete_record',
       },
-    }
+    },
   ]
   if (addViewAndDel) {
     headerColumn = defValue.concat(addOn);
@@ -101,7 +101,6 @@ const limitPageValue = [
 export default class DataTableComponent extends LightningElement {
   lstIdSeleced = [];
   dataList;
-  updateFieldTable;
   modeEdit = false;
   draftValues = [];
   @track optionsLimit = limitPageValue;
@@ -122,7 +121,7 @@ export default class DataTableComponent extends LightningElement {
   @track modeList = true;
   @track allFiled;
   @track getDataForTableSetting;
-  @track infoData ={first_name__c: "a"};
+  @track infoData = { first_name__c: "a" };
 
   /**
    * Get data for list
@@ -397,10 +396,14 @@ export default class DataTableComponent extends LightningElement {
     this.modeList = true;
   }
 
-  updateTable = (event, id) => {
+  updateDataTable = (event, id) => {
     if (event) {
       this.getFieldInfoData();
     }
+  }
+
+  refreshTableList = (event) => {
+    if (event.detail.isRefresh) refreshApex(this.dataList);
   }
 
   /**
